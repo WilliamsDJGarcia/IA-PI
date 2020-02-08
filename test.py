@@ -31,7 +31,7 @@ def select():
     ls=path.filename
     vidcap = cv2.VideoCapture(ls)
     path.destroy()
-    
+
     while(vidcap.isOpened()):
         count += 1
         vidcap.set(cv2.CAP_PROP_POS_MSEC,round(count, 2)*1000)
@@ -46,17 +46,18 @@ def select():
             cv2.destroyAllWindows()
     generalFormula()
     converVideo()
+    cv2.imshow('Frame Final',img_array[-1])
+    cv2.waitKey()
 
 if __name__ == '__main__':
 
     arrayImg = []
     img_array = []
     alpha=0.97
-
+    
     path = Tk()
     path.geometry('200x200')
     path.configure(bg = 'azure')
     path.title('Selección de video')
     ttk.Button(path, text='Seleccionar video', command=select ).pack(side=BOTTOM)
-    path.after(3000, lambda: path.destroy()) # Destroy the widget after 30 seconds
     path.mainloop()
