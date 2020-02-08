@@ -30,6 +30,7 @@ def select():
     print (path.filename)
     ls=path.filename
     vidcap = cv2.VideoCapture(ls)
+    path.destroy()
     
     while(vidcap.isOpened()):
         count += 1
